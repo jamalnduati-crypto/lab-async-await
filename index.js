@@ -1,7 +1,7 @@
 // Write your code here!
-
 function displayPosts(posts) {
   const postList = document.getElementById("post-list");
+  postList.innerHTML = "";
 
   posts.forEach(function(post) {
     const li = document.createElement("li");
@@ -13,7 +13,6 @@ function displayPosts(posts) {
 
     li.appendChild(h1);
     li.appendChild(p);
-
     postList.appendChild(li);
   });
 }
@@ -29,7 +28,6 @@ async function fetchPosts() {
     }
 
     const posts = await response.json();
-
     displayPosts(posts);
   } catch (error) {
     console.error("Error fetching posts:", error);
